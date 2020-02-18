@@ -45,11 +45,29 @@ ul {
     list-style: none;
 }
 
-li {
+ul.icon{
+    list-style-type: none;
+}
+
+ul.icon li {
+    text-indent: -1.4em;
+}
+
+ul.icon li:before {
+  font-family: bullets;
+  content: '\e800';
+  width: 1.4em;
+}
+
+ul.icon li.github:before { content: url(../img/icons8-github-24.png); position: relative; top:4px;}
+ul.icon li.linkedin:before { content: url(../img/icons8-linkedin-24.png); position: relative; top:5px;}
+ul.icon li.email:before { content: url(../img/icons8-important-mail-24.png); position: relative; top:5px;}
+
+ul#navbar li {
     display: inline-block;
 }
 
-li a {
+li a.navbar {
     display: block;
     color: white;
     text-align: center;
@@ -57,13 +75,13 @@ li a {
     text-decoration: none;
   }
 
-li a:hover {
+li a.navbar:hover {
   background-color: rgba(177, 210, 218, 0.562);
 }
 
 :target{
     display: block;
     position: relative;
-    top: -48px;
+    top: -60px;
     display: hidden;
 }
