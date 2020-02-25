@@ -2,7 +2,7 @@
 @tailwind components;
 
 .content-section{
-  @apply bg-blue-700 text-white text-xl rounded-lg p-5 m-auto mb-4;
+  @apply bg-blue-700 text-gray-100 text-xl rounded-lg p-5 m-auto mb-4;
 }
 
 .navbar {
