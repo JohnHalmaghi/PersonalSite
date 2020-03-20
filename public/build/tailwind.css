@@ -633,12 +633,6 @@ video {
   margin-bottom: 1rem;
 }
 
-.navbar {
-  position: -webkit-sticky !important;
-  position: sticky !important;
-  top: 0 !important;
-}
-
 .sr-only {
   position: absolute;
   width: 1px;
@@ -67363,13 +67357,6 @@ video {
 .text-large { font-size: 100pt;
 }
 
-.navbar {
-  box-shadow: none;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-}
-
 .containers {
   width: 100%;
   min-height: 3rem;
@@ -67427,25 +67414,63 @@ ul.icon li.email:before {
   top:5px;
 }
 
-ul#navbar li {
+.topnav{
   display: inline-block;
 }
 
-li a.navbar {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 16px 16px;
-  text-decoration: none;
+.topnav a {
+  padding: 10px 10px;
+  top: 0;
+  display: inline-block;
 }
 
-li a.navbar:hover {
+.topnav a:hover {
   background-color: rgba(177, 210, 218, 0.562);
 }
 
-:target{
+.topnav .hamburgerIcon {
+  display: none;
+  position: absolute;
+  padding-top: 2px;
+  padding-right: 10px;
+  vertical-align: middle;
+}
+
+video {
   display: block;
-  position: relative;
-  top: -60px;
-  display: hidden;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a {
+    display: none;
+  }
+
+  /* min-height is hamburger icon height + padding */
+
+  .topnav {
+    min-height: 54px;
+  }
+
+  .topnav .hamburgerIcon{
+    display: inline-block;
+    position: absolute;
+    right:0;
+    top: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive .hamburgerIcon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: center;
+  }
 }

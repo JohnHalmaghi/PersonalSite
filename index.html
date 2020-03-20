@@ -1,21 +1,56 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+
+        $("a").on('click', function(event) {
+
+            
+            if (this.hash !== "") {
+
+            event.preventDefault();
+
+            var hash = this.hash;
+            var navbar = document.getElementById("navbar");
+            navbar.className = "w-full bg-orange-800 fixed text-center text-white topnav text-2xl";
+            var navbarOffset = navbar.offsetHeight;
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top-navbarOffset
+            }, 800, function(){
+                window.location.hash = hash-navbarOffset;
+            });
+            }
+        });
+        });
+        </script>
+
+        <script>
+            function expandHamburgerMenu(){
+                var navbar = document.getElementById("navbar");
+                if(navbar.className == "w-full bg-orange-800 fixed text-center text-white topnav text-2xl"){
+                    navbar.className += " responsive";
+                } else {
+                    navbar.className = "w-full bg-orange-800 fixed text-center text-white topnav text-2xl";
+                }
+            }
+        </script>
         <title>John Halmaghi | Software Engineer</title>
         <link rel="stylesheet" type="text/css" href="public/build/tailwind.css">
     </head>
     <body class="bg-gray-800">
     
     <header>
-        <div class="navbar">
-                <ul id="navbar" class="w-full bg-orange-800 fixed text-center">
-                    <li><a href="#about-me" class="navbar"> About Me </a></li>
-                    <li><a href="#work" class="navbar"> Work </a></li>
-                    <li><a href="#skills" class="navbar"> Skills </a></li>
-                    <li><a href="#education" class="navbar"> Education </a></li>
-                    <li><a href="#projects" class="navbar"> Projects </a></li>
-                </ul>
+        <div id="navbar" class="w-full bg-orange-800 fixed text-center text-white topnav text-2xl">
+                    <a href="#about-me"> About Me </a>
+                    <a href="#work"> Work </a>
+                    <a href="#skills"> Skills </a>
+                    <a href="#education"> Education </a>
+                    <a href="#projects"> Projects </a>
+                    <a href="javascript:void(0);" class="hamburgerIcon" onclick="expandHamburgerMenu()"><img src="img/icons8-menu-50.png" class=""></img></a>
         </div>
+        <a id="about-me"></a> <!-- TODO: Make offset variable, not magic number -->
     </header>
     
     <main>
@@ -35,7 +70,6 @@
             </div>
         </section>
     
-        <a id="about-me"></a> <!-- TODO: Make offset variable, not magic number -->
         <section class="container content-section">
             <h1 class="text-3xl mb-2 font-bold">About Me</h1>
             <hr>
@@ -49,6 +83,11 @@
                 When I'm not working I enjoy cooking, reading, attempting (and often failing) to tire out my two year old dog, playing video games and spending time with my family.
             </p>
         </section>
+
+        <div class="text-center text-white italic mb-10 mt-10 text-xl w-2/3 m-auto">
+            "It's appreciated that John is motivated and asks for more work" - Former Manager
+        </div>
+
         <a id="work"></a>
         <section class="container content-section">
             <h1 class="text-3xl mb-2 font-bold">Work Experience</h1>
@@ -58,15 +97,15 @@
                 <ul class="text-left mt-2 text-lg list-disc list-inside">
                     <li>
                         Redesigned an unmanned airiel vehicle field testing interface that is used to directly control various flight-related test variables.
-                        <ul class="list-inside list-disc ml-8">
+                        <ul class="list-inside list-none ml-8"> <!--TODO: Add :before element for dashes-->
                             <li>
-                                Increased the number of possible testing variables to set at one time from ~20 to 768.
+                                - Increased the number of possible testing variables to set at one time from ~20 to 768.
                             </li>
                             <li>
-                                Made it possible to save sets of testing variables for reuse.
+                                - Made it possible to save sets of testing variables for reuse.
                             </li>
                             <li>
-                                Completely redesigned the UI to be more intuitive and user friendly
+                                - Completely redesigned the UI to be more intuitive and user friendly
                             </li>
                         </ul>
                     </li>
@@ -106,6 +145,10 @@
             </div>
         </section>
 
+        <div class="text-center text-white italic mb-10 mt-10 text-xl w-2/3 m-auto">
+            "John did a great job working independantly to solve problems. He's been a valuable resource to our team" - Former Manager
+        </div>
+
         <a id="skills"></a>
         <section class="container content-section">
             <h1 class="text-3xl mb-2 font-bold">Skills</h1>
@@ -129,7 +172,7 @@
                     </ul>
                 </div>
                 <div class="text-2xl">
-                    IDES/Frameworks/Tools
+                    Tools
                     <ul class="text-lg mt-2">
                         <li>
                             InteliJ
@@ -168,6 +211,10 @@
             </div>
         </section>
 
+        <div class="text-center text-white italic mb-10 mt-10 text-xl w-2/3 m-auto">
+            "John would be an asset to any employer and I would recommend him for any endeavor he chooses to pursue" - Former Manager
+        </div>
+
         <a id="education"></a>
         <section class="container content-section">
             <h1 class="text-3xl mb-2 font-bold">Education</h1>
@@ -192,21 +239,39 @@
                 </div>
             </div>
         </section>
-    
+
+        <div class="text-center text-white italic mb-10 mt-10 text-xl w-2/3 m-auto">
+            "John works well with others and quickly adapts to new assignments" - Former Manager
+        </div>
+
         <a id="projects"></a>
         <section class="container content-section"> 
             <h1 class="text-3xl mb-2 font-bold">Projects</h1>
-            <hr>
+            <hr class="mb-3">
+            <div class="flex">
+                <h1 class="text-xl underline mb-2">Aztec Study Place</h1> 
+                <h1 class="ml-3">[Android (Java)]</h1>
+            </div>
+            <div class="items-center aztecStudyPlace">
+                <p class="pl-6 text-center">
+                    I made this application while I was a graduate student at SDSU. It allows users to login with their university account, then downloads their class schedule and finds blocks of time the physical classrooms thier lectures are in are not in use so they can go study in them. Additionally, there is a feature which allows users to find classrooms which are currently available to study in near them. The motivation behind this was the idea of <a href="https://en.wikipedia.org/wiki/Context-dependent_memory" target="_blank" class="italic">Context-dependent Memory</a> which is "the improved recall of specific episodes or information when the context present at encoding and retreival are the same."
+                </p>
+                <video width="270" height="140" autoplay>
+                    <source src="img/AztecStudyPlaceClipMp4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </div>            
+
+            <div class="flex mt-4">
+                <h1 class="text-xl underline mb-2">Vacation Tracker</h1> 
+                <h1 class="ml-3">[Java, Swing]</h1>
+            </div>
             <p>
-                Multiple Sections
-                - Aztec Study Place
-                - Vacation Tracker
-                - (TBD) Commute Calculator
-                - (TBD) Spaced Repitition Study Helper
+                This is a Java desktop app which gets flight information from a user via a Swing GUI. I then (would) use the SkyScanner API to keep track of flights entered and look for price drops to alert the user via the Twilio API. I decided to make this because I like saving money and I wanted to learn the basics of Java GUI design and how to add basic persistence to my apps. Unfortunately the SkyScanner API is no longer free, so this application does not work as intended.
             </p>
         </section>
+        
     </main>
-    <!-- TODO: Add footer -->
     <footer class="text-center bg-orange-800 text-white">
         <div class="grid grid-cols-3 gap-4 text-center">
             <div class="text-xl m-auto">
