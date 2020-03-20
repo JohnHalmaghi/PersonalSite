@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+
+        $("a").on('click', function(event) {
+
+            
+            if (this.hash !== "") {
+
+            event.preventDefault();
+
+            var hash = this.hash;
+            var navbar = document.getElementById("navbar");
+            navbar.className = "w-full bg-orange-800 fixed text-center text-white topnav text-2xl";
+            var navbarOffset = navbar.offsetHeight;
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top-navbarOffset
+            }, 800, function(){
+                window.location.hash = hash-navbarOffset;
+            });
+            }
+        });
+        });
+        </script>
+
+        <script>
+            function expandHamburgerMenu(){
+                var navbar = document.getElementById("navbar");
+                if(navbar.className == "w-full bg-orange-800 fixed text-center text-white topnav text-2xl"){
+                    navbar.className += " responsive";
+                } else {
+                    navbar.className = "w-full bg-orange-800 fixed text-center text-white topnav text-2xl";
+                }
+            }
+        </script>
+        <title>John Halmaghi | Software Engineer</title>
+        <link rel="stylesheet" type="text/css" href="build/tailwind.css">
+    </head>
+    <body class="bg-gray-800">
+    
+    <header>
+        <div id="navbar" class="w-full bg-orange-800 fixed text-center text-white topnav text-2xl">
+                    <a href="#about-me"> About Me </a>
+                    <a href="#work"> Work </a>
+                    <a href="#skills"> Skills </a>
+                    <a href="#education"> Education </a>
+                    <a href="#projects"> Projects </a>
+                    <a href="javascript:void(0);" class="hamburgerIcon" onclick="expandHamburgerMenu()"><img src="img/icons8-menu-50.png" class=""></img></a>
+        </div>
+        <a id="about-me"></a> <!-- TODO: Make offset variable, not magic number -->
+    </header>
+    
+    <main>
+        <section>
+            <div class="text-center">
+                <h1 class="text-5xl text-white pt-24">John Halmaghi</h1>
+                <h1 class="text-3xl text-white pt-1">Software Engineer</h1>
+                <h3 class="text-xl text-white p-1">Aspiring daily to gain knowledge, improve skills <br>and make a difference</h3>
+                <img src="img/profile3.jpg" alt="profile image" class="block m-auto p-5 rounded-full">
+            </div>
+            <div>
+                <ul class="mb-4 text-white icon text-xl text-center">
+                    <li class="github"> <a href="https://github.com/JohnHalmaghi" target="_blank"> GitHub</a> </li>
+                    <li class="linkedin"> <a href="https://www.linkedin.com/in/john-halmaghi/" target="_blank"> LinkedIn</a></li>
+                    <li class="email"><a href="mailto:john.g.halmaghi@gmail.com"> Email</a></li>
+                </ul>
+            </div>
+        </section>
+    
+        <section class="container content-section">
+            <h1 class="text-3xl mb-2 font-bold">About Me</h1>
+            <hr>
+            <p>
+                After earning my B.S. in Geographic Information Systems in 2013, I began to work as a GIS Technician for the County of San Diego and Royale Energy Inc. During this time I noticed several opportunities for software to increase efficiency and productivity in the workplace, so I began to learn the basics of programming and software engineering in my free time. Eventually I wrote a few python scripts to improve the efficiency of my work flow. The more I learned about programming, the more I enjoyed it and this passion continued to grow until I decided to pursue a M.S. in Computer Science at San Diego State University, which I completed in 2019. I have a proven record, both academically and professionally, of exhibiting a willingness and ability to learn quickly, solve problems and complete tasks.
+            </p>
+            <p class="pt-2">
+                I currently work at General Atomics, Aeronautical Systems as a software developer where I work on software which runs in our ground control stations and communicates with unmanned aeirial vehicles.
+            </p>
+            <p class="pt-2">
+                When I'm not working I enjoy cooking, reading, attempting (and often failing) to tire out my two year old dog, playing video games and spending time with my family.
+            </p>
+        </section>
+
+        <div class="text-center text-white italic mb-10 mt-10 text-xl w-2/3 m-auto">
+            "It's appreciated that John is motivated and asks for more work" - Former Manager
+        </div>
+
+        <a id="work"></a>
+        <section class="container content-section">
+            <h1 class="text-3xl mb-2 font-bold">Work Experience</h1>
+            <hr>
+            <div>
+                <h1 class="text-2xl">General Atomics, Aeronautical Systems (June 2018 - Present)</h1>
+                <ul class="text-left mt-2 text-lg list-disc list-inside">
+                    <li>
+                        Redesigned an unmanned airiel vehicle field testing interface that is used to directly control various flight-related test variables.
+                        <ul class="list-inside list-none ml-8"> <!--TODO: Add :before element for dashes-->
+                            <li>
+                                - Increased the number of possible testing variables to set at one time from ~20 to 768.
+                            </li>
+                            <li>
+                                - Made it possible to save sets of testing variables for reuse.
+                            </li>
+                            <li>
+                                - Completely redesigned the UI to be more intuitive and user friendly
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Collaborated with teammates to port an existing software package from Red Hat 6 32bit to Red Had 7 64bit.
+                    </li>
+                    <li>
+                        Updated a Wireshark plugin which allowed operators to interpret and log messages being sent to and from and unmanned aeirial vehicle. Additionally created a python script which converted the logged Wireshark traffic to a different format which could be loaded with other existing message analyzing tools.
+                    </li>
+                    <li>
+                        Worked independently to create a Vagrant build process to create virtual machines of four different operating systems, which are configured using Ansible to be able to run all of our software releases. This process allows us to document system requirements for our software, and easily distribute any updates to the system requirements using version control. This saves developers 1-5 hours per use.
+                    </li>
+                    <li>
+                        Participated in unit and regression testing.
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h1 class="text-2xl pt-4">Royale Energy, Inc. (May 2014 - January 2016)</h1>
+                <ul class="text-left mt-2 text-lg list-disc list-inside">
+                    <li class="mb-2">
+                        Took the initiative to create various python scripts for automating GIS workflow and web scrapping oil and gas well data for analysis.
+                    </li>
+                    <li class="mb-2">
+                        Independently responsible for gathering, storing and distributing geographic data for over 60 oil and gas well, leases and pipelines.
+                    </li>
+                    <li class="mb-2">
+                        Was continually given more responsibility and asked to learn new job roles to improve the productivity of the company.
+                    </li>
+                    <li class="mb-2">
+                        Regularly led projects to gather and assemble geographic data in order to create maps which were used by petroleum engineers and geophysicists to aid in critical decision making.
+                    </li>
+                    <li class="mb-2">
+                        Assisted with IT work including but not limited to help desk tasks in the windows environment, minimal database management and integration with ArcMap, troubleshooting office hardware and virtual machine environments.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="text-center text-white italic mb-10 mt-10 text-xl w-2/3 m-auto">
+            "John did a great job working independantly to solve problems. He's been a valuable resource to our team" - Former Manager
+        </div>
+
+        <a id="skills"></a>
+        <section class="container content-section">
+            <h1 class="text-3xl mb-2 font-bold">Skills</h1>
+            <hr>
+            <div class="grid grid-cols-3 gap-4 text-center">
+                <div class="text-2xl">
+                    Languages
+                    <ul class="text-lg mt-2">
+                        <li>
+                            Java
+                        </li>
+                        <li>
+                            Python
+                        </li>
+                        <li>
+                            C
+                        </li>
+                        <li>
+                            HTML/CSS
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-2xl">
+                    Tools
+                    <ul class="text-lg mt-2">
+                        <li>
+                            InteliJ
+                        </li>
+                        <li>
+                            Eclipse
+                        </li>
+                        <li>
+                            Vim
+                        </li>
+                        <li>
+                            Qt
+                        </li>
+                        <li>
+                            Git
+                        </li>
+                        <li>
+                            Subversion
+                        </li>
+                        <li>
+                            Android Development
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-2xl">
+                    Other
+                    <ul class="text-lg mt-2">
+                        <li class="mt-2">
+                            Geographic Information Systems
+                        </li>
+                        <li>
+                            Remote Sensing
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center text-white italic mb-10 mt-10 text-xl w-2/3 m-auto">
+            "John would be an asset to any employer and I would recommend him for any endeavor he chooses to pursue" - Former Manager
+        </div>
+
+        <a id="education"></a>
+        <section class="container content-section">
+            <h1 class="text-3xl mb-2 font-bold">Education</h1>
+            <hr>
+            <div class="grid grid-cols-2">
+
+            
+                <img src="img/SDSUprimary3Crgb2.png" alt="San Diego State Icon" class="p-12">
+                <div class="m-auto">
+                    <div>
+                        Master of Science, Computer Science
+                        <hr>
+                        <h6 class="text-lg pt-2 text italic">Graduated May 2019</h6>
+                    </div>
+                    <div class="pt-6">
+                        Bachelors of Science, Geography - Geographic Information Science
+                        <hr>
+                        <h6 class="text-lg pt-2 text italic">Graduated May 2013</h6>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center text-white italic mb-10 mt-10 text-xl w-2/3 m-auto">
+            "John works well with others and quickly adapts to new assignments" - Former Manager
+        </div>
+
+        <a id="projects"></a>
+        <section class="container content-section"> 
+            <h1 class="text-3xl mb-2 font-bold">Projects</h1>
+            <hr class="mb-3">
+            <div class="flex">
+                <h1 class="text-xl underline mb-2">Aztec Study Place</h1> 
+                <h1 class="ml-3">[Android (Java)]</h1>
+            </div>
+            <div class="items-center aztecStudyPlace">
+                <p class="pl-6 text-center">
+                    I made this application while I was a graduate student at SDSU. It allows users to login with their university account, then downloads their class schedule and finds blocks of time the physical classrooms thier lectures are in are not in use so they can go study in them. Additionally, there is a feature which allows users to find classrooms which are currently available to study in near them. The motivation behind this was the idea of <a href="https://en.wikipedia.org/wiki/Context-dependent_memory" target="_blank" class="italic">Context-dependent Memory</a> which is "the improved recall of specific episodes or information when the context present at encoding and retreival are the same."
+                </p>
+                <video width="270" height="140" autoplay>
+                    <source src="img/AztecStudyPlaceClipMp4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </div>            
+
+            <div class="flex mt-4">
+                <h1 class="text-xl underline mb-2">Vacation Tracker</h1> 
+                <h1 class="ml-3">[Java, Swing]</h1>
+            </div>
+            <p>
+                This is a Java desktop app which gets flight information from a user via a Swing GUI. I then (would) use the SkyScanner API to keep track of flights entered and look for price drops to alert the user via the Twilio API. I decided to make this because I like saving money and I wanted to learn the basics of Java GUI design and how to add basic persistence to my apps. Unfortunately the SkyScanner API is no longer free, so this application does not work as intended.
+            </p>
+        </section>
+        
+    </main>
+    <footer class="text-center bg-orange-800 text-white">
+        <div class="grid grid-cols-3 gap-4 text-center">
+            <div class="text-xl m-auto">
+                Contact Me 
+                <br>
+                    <a href="https://github.com/JohnHalmaghi" target="_blank"> <img src="img/icons8-github-48.png" alt="github icon" class="inline-block"> </a>
+
+                    <a href="https://www.linkedin.com/in/john-halmaghi/" target="_blank"><img src="img/icons8-linkedin-48.png" alt="linkedin incon" class="inline-block"> </a>
+
+                    <a href="mailto:john.g.halmaghi@gmail.com" target="_blank"><img src="img/icons8-important-mail-48.png" alt="mail incon" class="inline-block"> </a>
+            </div>
+            <div class="mb-4 text-xl">
+                What I look for in a company
+                <hr class="mt-2 mb-2">
+                <p class="text-sm">
+                    At this point in my career I'm looking for a position that I can learn a lot from and grow as a professional software engineer. This can take many forms including, mentorship, experienced coworkers, challenging work, and a team that is (generally) following best practices for the software develepment life cycle (version control, automated testing, code reviews, etc).
+                </p>
+            </div>
+            <div class="mb-4 text-xl">
+                About this site
+                <hr class="mt-2 mb-2">
+                <p class="mb-4 text-sm">
+                    This site was created using using various frameworks and libraries, including: TailwindCSS, PostCSS, Node.js, autprefixer, purgeCSS and is hosted on Heroku.
+                </p>
+            </div>
+        </div>  
+    </footer>
+    </body>
+</html>
+
