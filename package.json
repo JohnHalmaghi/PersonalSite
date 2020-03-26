@@ -11,13 +11,13 @@
   "license": "ISC",
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.0.6",
-    "postcss": "^7.0.26",
+    "postcss": "^7.0.27",
     "tailwindcss": "^1.2.0",
-    "webpack": "^4.41.6",
+    "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
   "dependencies": {
-    "autoprefixer": "^9.7.4",
+    "autoprefixer": "^9.7.5",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "postcss-cli": "^7.1.0"
